@@ -10,7 +10,7 @@ if (!password) {
 }
 
 // MongoDB connection string (use your own username and password)
-const url = `mongodb+srv://anhnguyen:anhnguyen123@cluster0.u7fcp.mongodb.net/phonebook?retryWrites=true&w=majority`;
+const url = 'mongodb+srv://anhnguyen:anhnguyen123@cluster0.u7fcp.mongodb.net/phonebook?retryWrites=true&w=majority';
 
 // Define the phonebook schema
 const personSchema = new mongoose.Schema({
