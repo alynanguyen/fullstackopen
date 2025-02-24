@@ -31,7 +31,6 @@ const App = () => {
     event.preventDefault();
 
     const newPerson = {
-      id: String(persons.length + 1),
       name: newName,
       number: newNumber
     };
@@ -49,9 +48,9 @@ const App = () => {
         const changedPerson = { ...existingPerson, number: newNumber };
 
         personService
-          .update(existingPerson.id, changedPerson)
+          .update(existingPerson._id, changedPerson)
           .then(response => {
-            setPersons(persons.map(person => person.id !== existingPerson.id ? person : response.data));
+            setPersons(persons.map(person => person._id !== existingPerson._id ? person : response.data));
             setNewName('');
             setNewNumber('');
           });
@@ -76,7 +75,7 @@ const App = () => {
   }
 
   const deletePerson = id => {
-    const person = persons.find(p => p.id === id);
+    const person = persons.find(p => p._id === id);
 
     if(!person) return;
 
@@ -85,7 +84,7 @@ const App = () => {
         .remove(id)
         .then( response => {
           console.log('response', response);
-          setPersons(persons.filter(person => person.id !== id))
+          setPersons(persons.filter(person => person._id !== id))
         }
         )
         .catch(error => {
