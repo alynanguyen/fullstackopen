@@ -74,21 +74,48 @@ const App = () => {
     }
   }
 
-  const deletePerson = id => {
-    const person = persons.find(p => p._id === id);
+  // const deletePerson = id => {
+  //   const person = persons.find(p => p._id === id);
+
+  //   if(!person) return;
+
+  //   if(window.confirm(`Delete ${person.name}?`)) {
+  //     personService
+  //       .remove(id)
+  //       .then( response => {
+  //         console.log('response', response);
+  //         setPersons(persons.filter(person => person._id !== id))
+  //       }
+  //       )
+  //       .catch(error => {
+  //         console.log('error', error);
+  //         setNotification(`Information of ${person.name} has already been removed from server`);
+  //         setNotificationType('error');
+
+  //         setTimeout(() => {
+  //           setNotification(null);
+  //         }, 5000);
+  //       });
+  //   }
+  // }
+
+  const deletePerson = (personName) => {
+
+    const person = persons.find(p => p.name === personName);
 
     if(!person) return;
 
     if(window.confirm(`Delete ${person.name}?`)) {
       personService
-        .remove(id)
+        .remove(person._id)
         .then( response => {
           console.log('response', response);
-          setPersons(persons.filter(person => person._id !== id))
+          setPersons(persons.filter(p => p._id !== person.id))
         }
         )
         .catch(error => {
-          setNotification(`Information of ${person.name} has already been removed from server`);
+          console.log('error', error);
+          setNotification(`Information of ${personName} has already been removed from server`);
           setNotificationType('error');
 
           setTimeout(() => {
