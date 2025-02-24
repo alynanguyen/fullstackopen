@@ -110,7 +110,7 @@ const App = () => {
         .remove(person._id)
         .then( response => {
           console.log('response', response);
-          setPersons(persons.filter(p => p._id !== person.id))
+          setPersons(persons.filter(p => p._id !== person._id))
         }
         )
         .catch(error => {
