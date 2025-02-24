@@ -63,41 +63,19 @@ const App = () => {
           setPersons([...persons, response.data]);
           setNewName('');
           setNewNumber('');
+          setNotification(`${newName} was added successfully!`);
+          setNotificationType('success');
+          setTimeout(() => setNotification(null), 5000);
+        })
+        .catch(error => {
+          // Show the error message from the backend
+          setNotification(`Error: ${error.response.data.error}`);
+          setNotificationType('error');
+          setTimeout(() => setNotification(null), 5000);
         });
-
-      setNotification(`${newName} is added successfully`);
-      setNotificationType('success');
-
-      setTimeout(() => {
-        setNotification(null);
-      }, 5000);
     }
   }
 
-  // const deletePerson = id => {
-  //   const person = persons.find(p => p._id === id);
-
-  //   if(!person) return;
-
-  //   if(window.confirm(`Delete ${person.name}?`)) {
-  //     personService
-  //       .remove(id)
-  //       .then( response => {
-  //         console.log('response', response);
-  //         setPersons(persons.filter(person => person._id !== id))
-  //       }
-  //       )
-  //       .catch(error => {
-  //         console.log('error', error);
-  //         setNotification(`Information of ${person.name} has already been removed from server`);
-  //         setNotificationType('error');
-
-  //         setTimeout(() => {
-  //           setNotification(null);
-  //         }, 5000);
-  //       });
-  //   }
-  // }
 
   const deletePerson = (personName) => {
 
