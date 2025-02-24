@@ -5,9 +5,9 @@ const Persons = ({ persons, deletePerson }) => {
       <div>
         {/* {persons.map(({ name, number, id }) => <p key={id}>{name} {number}</p>)} */}
         {persons.map(person =>
-          <div key={person.id}>
+          <div key={person._id}>
             {person.name} {person.number}
-            <button onClick={()=>deletePerson(person.id)}>delete</button>
+            <button onClick={()=>deletePerson(person.name)}>delete</button>
           </div>
         )}
       </div>
