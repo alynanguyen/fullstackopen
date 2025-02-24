@@ -1,6 +1,6 @@
 import React from "react";
 import axios from 'axios';
-const baseUrl = 'http://localhost:3001/persons';
+const baseUrl = 'https://fullstackopen-hbf9.onrender.com/api/persons';
 
 const getAll = () => {
     return axios.get(baseUrl)
