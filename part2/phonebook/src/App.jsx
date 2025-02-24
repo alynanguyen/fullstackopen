@@ -105,7 +105,7 @@ const App = () => {
 
   return (
     <div>
-      <Notification message={notification} />
+      <Notification message={notification} type={notificationType} />
       <h2>Phonebook</h2>
       <Filter filter={filter} onChange={ (e) => setFilter(e.target.value)} />
 
