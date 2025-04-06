@@ -1,0 +1,33 @@
+### Login Test - Valid Credentials
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "admin",
+    "password": "admin123"
+}
+
+### Login Test - Valid Credentials 2
+POST http://localhost:3000/api/auth/login
+Content-Type: application/json
+
+{
+    "username": "john",
+    "password": "johndoe123"
+}
+
+### POST - Create a New Blog as testuser
+POST http://localhost:3000/api/blogs
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY3ZjJkNDViOGNhNmY3YjIzODUwOTYxZCIsImlhdCI6MTc0Mzk2NzQwOCwiZXhwIjoxNzQzOTcxMDA4fQ.edCEwp0jjVXpJ1QtDCEuX-uI-KE3U9GQY_thZnKU8BA
+Content-Type: application/json
+
+{
+  "title": "My Third Blog",
+  "author": "Test User",
+  "url": "http://example.com/my-first-blog",
+  "likes": 5
+}
+
+
+
+
